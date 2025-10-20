@@ -1,9 +1,22 @@
-import React from 'react'
+import { useEffect, useState } from "react";
+import SplashScreen from "./components/common/SplashScreen";
 
 const App = () => {
-  return (
-    <div>App</div>
-  )
-}
+  const [loading, setLoading] = useState(true);
 
-export default App
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 10000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <SplashScreen />;
+  }
+
+  return <div className="p-5 animate-opacity">App Page</div>;
+};
+
+export default App;

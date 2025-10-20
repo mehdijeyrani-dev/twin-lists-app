@@ -1,1 +1,42 @@
 @import "tailwindcss";
+
+@theme {
+  --breakpoint-xs: 15rem;
+  --animate-diagonal: diagonal 5s ease-in-out infinite;
+  --animate-opacity: opacity 0.5s ease-in-out;
+
+  @keyframes diagonal {
+    0%,
+    100% {
+      transform: translate(0, 100px);
+    }
+    50% {
+      transform: translate(400px, 100px);
+    }
+  }
+
+  @keyframes opacity {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-neutral-900 text-neutral-100;
+  }
+}
+
+@layer components {
+  .splash-blur {
+    @apply relative overflow-hidden xs:w-40 sm:w-80 md:w-96 lg:w-[500px];
+  }
+  .splash-blur::before {
+    content: "";
+    @apply absolute w-20 h-20 md:w-[200px] md:h-[200px] blur-[80px] opacity-20 rounded-full bg-purple-500 -z-10 animate-diagonal left-0 bottom-10  sm:-left-10 sm:-top-10;
+  }
+}
