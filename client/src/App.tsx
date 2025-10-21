@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import SplashScreen from "./components/common/SplashScreen";
+import { RouterProvider } from "react-router-dom";
+import router from "./router";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -7,7 +9,7 @@ const App = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 10000);
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -16,7 +18,7 @@ const App = () => {
     return <SplashScreen />;
   }
 
-  return <div className="p-5 animate-opacity">App Page</div>;
+  return <RouterProvider router={router} />;
 };
 
 export default App;
