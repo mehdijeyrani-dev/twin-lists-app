@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { EnergyIcon, LogoutIcon, SettingsIcon } from "../icons";
+import { Icon } from "../icons";
 
 interface AccountControlsProps {
   isSidebarOpen: boolean;
@@ -8,7 +8,7 @@ interface AccountControlsProps {
 const AccountControls = ({ isSidebarOpen }: AccountControlsProps) => {
   return (
     <nav
-      className={`w-full AccountControls p-2.5 border border-neutral-800 rounded-md transition-all flex flex-col gap-2 ${
+      className={`w-full transition-all flex flex-col gap-2 ${
         isSidebarOpen ? "opacity-100 duration-1000" : "opacity-0"
       }`}
     >
@@ -16,21 +16,21 @@ const AccountControls = ({ isSidebarOpen }: AccountControlsProps) => {
         to={"/"}
         className="flex items-center gap-2 bg-transparent w-full p-2 rounded-sm hover:bg-neutral-800/50 transition-all duration-200 cursor-pointer"
       >
-        <EnergyIcon size={20} />
+        <Icon.Energy size={20} />
         <span>Add Team</span>
       </NavLink>
       <NavLink
         to={"/"}
         className="flex items-center gap-2 bg-transparent w-full p-2 rounded-sm hover:bg-neutral-800/50 transition-all duration-200 cursor-pointer"
       >
-        <SettingsIcon size={20} />
+        <Icon.Settings size={20} />
         <span>Settings</span>
       </NavLink>
       <NavLink
         to={"/"}
         className="flex items-center gap-2 bg-transparent w-full p-2 rounded-sm hover:bg-neutral-800/50 transition-all duration-200 cursor-pointer text-rose-500"
       >
-        <LogoutIcon size={20} />
+        <Icon.Logout size={20} />
         <span>Logout</span>
       </NavLink>
     </nav>

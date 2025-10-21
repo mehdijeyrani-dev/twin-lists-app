@@ -1,16 +1,35 @@
-export { default as CloseSidebarIcon } from "./CloseSidebarIcon";
-export { default as OpenSidebarIcon } from "./OpenSidebarIcon";
-export { default as BellIcon } from "./BellIcon";
-export { default as SunIcon } from "./SunIcon";
-export { default as AddIcon } from "./AddIcon";
-export { default as SearchIcon } from "./SearchIcon";
-export { default as InboxIcon } from "./InboxIcon";
-export { default as CalenderIcon } from "./CalenderIcon";
-export { default as CalenderUploadIcon } from "./CalenderUploadIcon";
-export { default as FilterIcon } from "./FilterIcon";
-export { default as NoteIcon } from "./NoteIcon";
-export { default as AtomIcon } from "./AtomIcon";
-export { default as FoldersIcon } from "./FoldersIcon";
-export { default as EnergyIcon } from "./EnergyIcon";
-export { default as SettingsIcon } from "./SettingsIcon";
-export { default as LogoutIcon } from "./LogoutIcon";
+import AddIcon from "./AddIcon";
+import AtomIcon from "./AtomIcon";
+import BellIcon from "./BellIcon";
+import CalenderIcon from "./CalenderIcon";
+import CalenderUploadIcon from "./CalenderUploadIcon";
+import CloseSidebarIcon from "./CloseSidebarIcon";
+import EnergyIcon from "./EnergyIcon";
+import FilterIcon from "./FilterIcon";
+import FoldersIcon from "./FoldersIcon";
+import OpenSidebarIcon from "./OpenSidebarIcon";
+import InboxIcon from "./InboxIcon";
+import LogoutIcon from "./LogoutIcon";
+import NoteIcon from "./NoteIcon";
+import SearchIcon from "./SearchIcon";
+import SettingsIcon from "./SettingsIcon";
+import SunIcon from "./SunIcon";
+
+export const Icon = {
+  Add: AddIcon,
+  Atom: AtomIcon,
+  Bell: BellIcon,
+  Calender: CalenderIcon,
+  CalenderUpload: CalenderUploadIcon,
+  CloseSidebar: CloseSidebarIcon,
+  OpenSidebar: OpenSidebarIcon,
+  Energy: EnergyIcon,
+  Filter: FilterIcon,
+  Folders: FoldersIcon,
+  Inbox: InboxIcon,
+  Logout: LogoutIcon,
+  Note: NoteIcon,
+  Search: SearchIcon,
+  Settings: SettingsIcon,
+  Sun: SunIcon,
+};

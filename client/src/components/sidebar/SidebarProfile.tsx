@@ -13,7 +13,7 @@ const SidebarProfile = ({
 }: SidebarProfileProps) => {
   return (
     <div
-      className={`flex justify-between items-center rounded-md border border-neutral-800 p-2.5 transition-all ${
+      className={`flex justify-between items-center p-2.5 transition-all ${
         isSidebarOpen ? "opacity-100 duration-1000 mr-2.5" : "opacity-0 mr-0"
       }`}
     >

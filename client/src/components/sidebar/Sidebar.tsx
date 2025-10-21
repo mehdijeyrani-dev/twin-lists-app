@@ -11,20 +11,22 @@ interface SidebarProps {
 const Sidebar = ({ isSidebarOpen }: SidebarProps) => {
   return (
     <aside
-      className={`h-screen transition-all duration-500 ease-in-out border-r border-neutral-800 overflow-hidden hidden md:block ${
+      className={`h-screen transition-all duration-500 ease-in-out border-r border-neutral-800 overflow-hidden hidden md:block bg-neutral-900 ${
         isSidebarOpen
           ? "w-3/10 lg:w-2/10 p-2.5 opacity-100"
           : "w-0 p-0 opacity-0"
       }`}
     >
-      <div className="w-full h-full flex flex-col justify-between gap-2.5">
-        <div className="flex flex-col gap-2.5 flex-1">
+      <div className="w-full h-full flex flex-col justify-between">
+        <div className="flex flex-col gap-2 flex-1">
           <SidebarProfile
             isSidebarOpen={isSidebarOpen}
             avatarImg={avatarImg}
             name="Mehdi Jeyrani"
           />
+          <hr className="border-neutral-800" />
           <SidebarAction isSidebarOpen={isSidebarOpen} />
+          <hr className="border-neutral-800" />
           <SidebarNav isSidebarOpen={isSidebarOpen} />
         </div>
         <AccountControls isSidebarOpen={isSidebarOpen} />
