@@ -19,6 +19,7 @@ const BellIcon = ({ size = 24, strokeWidth = 1.5, ...rest }: IconProps) => {
       />
       <path
         d="M9 21C9.79613 21.6219 10.8475 22 12 22C13.1525 22 14.2039 21.6219 15 21"
+        
         stroke-linecap="round"
         stroke-linejoin="round"
       />
