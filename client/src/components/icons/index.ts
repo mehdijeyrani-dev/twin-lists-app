@@ -14,6 +14,7 @@ import NoteIcon from "./NoteIcon";
 import SearchIcon from "./SearchIcon";
 import SettingsIcon from "./SettingsIcon";
 import SunIcon from "./SunIcon";
+import GroupIcon from "./GroupIcon";
 
 export const Icon = {
   Add: AddIcon,
@@ -32,4 +33,5 @@ export const Icon = {
   Search: SearchIcon,
   Settings: SettingsIcon,
   Sun: SunIcon,
+  Group: GroupIcon,
 };

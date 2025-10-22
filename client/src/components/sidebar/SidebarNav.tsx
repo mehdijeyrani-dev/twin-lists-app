@@ -8,7 +8,7 @@ interface SidebarNavProps {
 const SidebarNav = ({ isSidebarOpen }: SidebarNavProps) => {
   return (
     <nav
-      className={`w-full transition-all flex flex-col gap-2 flex-1 ${
+      className={`w-full transition-all flex flex-col gap-2 ${
         isSidebarOpen ? "opacity-100 duration-1000" : "opacity-0"
       }`}
     >
@@ -39,27 +39,6 @@ const SidebarNav = ({ isSidebarOpen }: SidebarNavProps) => {
       >
         <Icon.Filter size={20} />
         <span>Filters & Labels</span>
-      </NavLink>
-      <NavLink
-        to={"/"}
-        className="flex items-center gap-2 bg-transparent w-full p-2 rounded-sm hover:bg-neutral-800/50 transition-all duration-200 cursor-pointer"
-      >
-        <Icon.Note size={20} />
-        <span>My Tasks</span>
-      </NavLink>
-      <NavLink
-        to={"/"}
-        className="flex items-center gap-2 bg-transparent w-full p-2 rounded-sm hover:bg-neutral-800/50 transition-all duration-200 cursor-pointer"
-      >
-        <Icon.Atom size={20} />
-        <span>My Teams</span>
-      </NavLink>
-      <NavLink
-        to={"/"}
-        className="flex items-center gap-2 bg-transparent w-full p-2 rounded-sm hover:bg-neutral-800/50 transition-all duration-200 cursor-pointer"
-      >
-        <Icon.Folders size={20} />
-        <span>My Projects</span>
       </NavLink>
     </nav>
   );

@@ -4,13 +4,23 @@ import logoImg from "@/assets/images/logo.svg";
 
 import { Sidebar } from "@/components/sidebar";
 import { Icon } from "@/components/icons";
+import AddTaskModal from "@/components/AddTaskModal";
+import MobileNavbar from "@/components/navbar/MobileNavbar";
 
 const Dashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isAddTaskModalOpen, setIsAddTaskModalOpen] = useState(false);
+  const [isAddTeamModalOpen, setIsAddTeamModalOpen] = useState(false);
+  const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
 
   return (
     <div className="w-full h-full flex animate-opacity relative">
-      <Sidebar isSidebarOpen={isSidebarOpen} />
+      <Sidebar
+        isSidebarOpen={isSidebarOpen}
+        onOpenAddTaskModal={() => setIsAddTaskModalOpen(true)}
+        onOpenAddTeamModal={() => setIsAddTeamModalOpen(true)}
+        onOpenSearchModal={() => setIsSearchModalOpen(true)}
+      />
       <main className="flex-1 h-screen overflow-hidden p-2.5 flex flex-col gap-2">
         <button
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
@@ -29,7 +39,7 @@ const Dashboard = () => {
           )}
         </button>
         <header
-          className={`header h-14 p-2.5 flex justify-between items-center transition-all duration-300 ${
+          className={`header h-10 md:h-14 p-2.5 flex justify-between items-center transition-all duration-300 ${
             isSidebarOpen && "md:ml-3.5"
           }`}
         >
@@ -46,11 +56,16 @@ const Dashboard = () => {
               <Icon.Sun strokeWidth={1} size={20} />
             </button>
           </div>
-          <div className="">
-            <img src={logoImg} alt="" width={110} className="object-contain" />
+          <div className="w-20 md:w-24 xl:w-28">
+            <img
+              src={logoImg}
+              alt=""
+              width={110}
+              className="w-full object-contain"
+            />
           </div>
         </header>
-        <hr className="border-neutral-800"/>
+        <hr className="border-neutral-800" />
         <div className="p-2.5 flex-1">
           <Outlet />
         </div>
@@ -58,6 +73,12 @@ const Dashboard = () => {
           © 2025 Twin Lists — Crafted with ❤️ by Mehdi Jeyrani
         </footer>
       </main>
+
+      {isAddTaskModalOpen && (
+        <AddTaskModal onClick={() => setIsAddTaskModalOpen(false)} />
+      )}
+
+      <MobileNavbar />
     </div>
   );
 };
