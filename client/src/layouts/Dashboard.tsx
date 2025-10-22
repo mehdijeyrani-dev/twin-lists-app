@@ -4,6 +4,7 @@ import SidebarToggle from "@/components/ui/SidebarToggle";
 import MainSection from "@/components/layout/MainSection";
 import { useUIStore } from "@/store/useUIStore";
 import AddTaskModal from "@/components/AddTaskModal";
+import { Plus } from "lucide-react";
 
 const Dashboard = () => {
   const { isAddTaskModalOpen } = useUIStore();
@@ -15,6 +16,9 @@ const Dashboard = () => {
       <MainSection />
       <MobileNavbar />
       {isAddTaskModalOpen && <AddTaskModal />}
+      <button className="fixed bottom-24 right-3 bg-purple-500 text-white p-4 rounded-full md:hidden">
+        <Plus size={20}/>
+      </button>
     </div>
   );
 };
