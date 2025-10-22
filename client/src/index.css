@@ -27,7 +27,7 @@
 
 @layer base {
   body {
-    @apply bg-neutral-900 text-neutral-100;
+    @apply bg-neutral-900 text-neutral-100 w-screen h-dvh overflow-hidden;
   }
 }
 
@@ -39,4 +39,12 @@
     content: "";
     @apply absolute w-20 h-20 md:w-[200px] md:h-[200px] blur-[80px] opacity-20 rounded-full bg-purple-500 -z-10 animate-diagonal left-0 bottom-10  sm:-left-10 sm:-top-10;
   }
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }

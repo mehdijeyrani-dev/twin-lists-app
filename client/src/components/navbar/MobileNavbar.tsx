@@ -27,8 +27,8 @@ const MobileNavbar = () => {
   });
 
   return (
-    <div className="w-full fixed bottom-0 left-0 bg-neutral-900 md:hidden">
-      <nav className="grid grid-cols-5 relative">
+    <div className="w-full h-20 -mb-2 fixed bottom-0 left-0 md:hidden bg-neutral-900">
+      <nav className="grid grid-cols-5 relative items-center">
         {/* Animated background */}
         <div
           className="absolute top-0 left-0 w-1/5 h-full transition-transform duration-300 ease-in-out z-0 before:absolute before:size-14 before:content-[''] before:bg-purple-500/10 before:-top-2 before:left-1/2 before:-translate-x-1/2 before:rounded-full"
