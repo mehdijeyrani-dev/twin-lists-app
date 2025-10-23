@@ -9,10 +9,10 @@ import {
 } from "lucide-react";
 
 const links = [
-  { to: "/", icon: <Inbox />, label: "Inbox" },
   { to: "/today", icon: <Calendar1 />, label: "Today" },
-  { to: "/search", icon: <Search />, label: "Search" },
   { to: "/upcoming", icon: <CalendarArrowUp />, label: "Upcoming" },
+  { to: "/search", icon: <Search />, label: "Search" },
+  { to: "/", icon: <Inbox />, label: "Inbox" },
   { to: "/workspaces", icon: <Target />, label: "Workspaces" },
 ];
 

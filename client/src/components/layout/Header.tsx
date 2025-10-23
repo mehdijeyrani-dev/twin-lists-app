@@ -7,8 +7,8 @@ const Header = () => {
 
   return (
     <header
-      className={`header h-fit md:h-14 pb-2.5 md:p-2.5 flex justify-between items-center transition-all duration-300 border-b md:border-0 border-neutral-800 ${
-        isSidebarOpen && "md:ml-3.5"
+      className={`header h-fit p-2.5 md:p-5 flex justify-between items-center transition-all duration-300 border-b md:border-0 border-neutral-800 ${
+        isSidebarOpen && "md:pl-7"
       }`}
     >
       <div

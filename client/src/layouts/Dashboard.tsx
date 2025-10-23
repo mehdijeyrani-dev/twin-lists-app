@@ -16,7 +16,7 @@ const Dashboard = () => {
       <MainSection />
       <MobileNavbar />
       {isAddTaskModalOpen && <AddTaskModal />}
-      <button className="fixed bottom-24 right-3 bg-purple-500 text-white p-4 rounded-full md:hidden">
+      <button className="fixed bottom-24 right-3 bg-purple-500 text-white p-4 rounded-full md:hidden z-[200]">
         <Plus size={20}/>
       </button>
     </div>

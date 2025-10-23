@@ -1,89 +1,570 @@
-import React from 'react'
+import {
+  CalendarCheck,
+  Circle,
+  EllipsisVertical,
+  GitMerge,
+  MessageSquare,
+  Plus,
+  Search,
+} from "lucide-react";
+import avatarImg from "@/assets/images/avatar01.jpg";
+import { getLabelColor } from "@/utils/colors/labelColors";
+import { priorityColors } from "@/utils/colors/priorityColors";
+
+const tasks = [
+  {
+    id: "task-001",
+    title: "Design user onboarding flow",
+    description:
+      "Create wireframe and user journey for the new onboarding experience.",
+    status: "todo",
+    priority: "High priority",
+    deadline: "2025-11-05T23:59:59Z",
+    reminder: "2025-11-03T09:00:00Z",
+    assignee: "mehdi.jeyrani@example.com",
+    team: "Product Design",
+    project: "User Experience Revamp",
+    labels: ["design", "onboarding", "ux"],
+    privacy: "team",
+    subtasks: [
+      {
+        id: "subtask-001",
+        title: "Sketch wireframe",
+        status: "done",
+        assignee: "mehdi.jeyrani@example.com",
+      },
+      {
+        id: "subtask-002",
+        title: "Create user journey map",
+        status: "in progress",
+        assignee: "designer@example.com",
+      },
+      {
+        id: "subtask-003",
+        title: "Review flow with PM",
+        status: "todo",
+        assignee: "pm@example.com",
+      },
+    ],
+  },
+  {
+    id: "task-002",
+    title: "Implement API rate limiting",
+    description:
+      "Add middleware to enforce rate limits per user/IP to prevent abuse.",
+    status: "in progress",
+    priority: "Medium priority",
+    reminder: "2025-10-28T10:00:00Z",
+    assignee: "backend.dev@example.com",
+    team: "Backend Engineering",
+    project: "",
+    labels: ["api", "security", "middleware"],
+    privacy: "private",
+  },
+  {
+    id: "task-003",
+    title: "Write release notes for v2.4",
+    description:
+      "Summarize new features, bug fixes, and known issues for the upcoming release.",
+    status: "done",
+    priority: "Low priority",
+    deadline: "2025-10-20T12:00:00Z",
+    reminder: "2025-10-18T14:00:00Z",
+    assignee: "tech.writer@example.com",
+    team: "Documentation",
+    project: "Product Release v2.4",
+    labels: ["docs", "release", "communication"],
+    privacy: "public",
+  },
+  {
+    id: "task-004",
+    title: "Review Q4 marketing campaign assets",
+    description:
+      "Check visuals, copy, and CTAs for alignment with brand guidelines.",
+    status: "todo",
+    priority: "High priority",
+    deadline: "2025-11-10T16:00:00Z",
+    reminder: "2025-11-08T11:00:00Z",
+    assignee: "mehdi.jeyrani@example.com",
+    team: "Marketing",
+    project: "Q4 Campaign",
+    labels: ["marketing", "review", "branding"],
+    privacy: "team",
+  },
+  {
+    id: "task-005",
+    title: "Fix mobile layout overflow on task detail page",
+    description:
+      "Ensure content doesn’t cause horizontal scroll on small screens.",
+    status: "in progress",
+    priority: "Crucial priority",
+    deadline: "2025-10-25T18:00:00Z",
+    reminder: "2025-10-24T09:00:00Z",
+    assignee: "frontend.dev@example.com",
+    team: "Frontend Engineering",
+    project: "UI Polish",
+    labels: ["bug", "mobile", "ui", "ux", "items", "car", "finish"],
+    privacy: "team",
+    subtasks: [
+      {
+        id: "subtask-004",
+        title: "Check overflow on iPhone 14",
+        status: "done",
+        assignee: "frontend.dev@example.com",
+      },
+      {
+        id: "subtask-005",
+        title: "Fix CSS for small screens",
+        status: "done",
+        assignee: "frontend.dev@example.com",
+      },
+    ],
+  },
+];
 
 const Inbox = () => {
   return (
-    <div className='w-full h-full overflow-y-auto'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat similique repudiandae aut, incidunt magnam recusandae sit amet id nobis temporibus mollitia ratione explicabo ab excepturi voluptatum delectus suscipit nemo consequatur?
-    Dolorem optio sequi, tenetur eaque enim harum eos, accusantium porro necessitatibus, odit asperiores? Amet deleniti iusto libero magni adipisci, laudantium explicabo vitae provident qui rerum molestiae voluptatem, repudiandae eveniet itaque.
-    Tempore, voluptatum consequuntur? Maxime odit nihil vitae, at eius, dolorum labore aperiam sit culpa incidunt atque aliquam! Nam ex, aliquid distinctio, velit nesciunt esse, veritatis eius quia corporis voluptate hic.
-    Qui quaerat ea dolorem eum ratione earum eius deleniti, corporis dolorum magni distinctio enim id maiores? Maiores deleniti, itaque quae commodi magnam sapiente maxime labore quisquam aliquam ea nulla mollitia!
-    Accusantium deserunt nihil, dolor vero dolore ex repellat dignissimos iure porro cum adipisci asperiores perspiciatis fugiat perferendis tempore numquam. Eaque dolores praesentium unde soluta ea in aliquam molestiae quae neque.
-    Repudiandae laboriosam repellendus debitis obcaecati provident quia, mollitia rem accusantium voluptatem, praesentium a voluptatum eos architecto, odio voluptates quam eveniet incidunt. Architecto nulla deleniti tempore possimus sed provident quod corporis.
-    At rerum culpa doloremque enim libero voluptatem architecto placeat hic accusamus, mollitia ea omnis dolorum quod non dicta quidem dolor tenetur obcaecati perspiciatis! Optio non at et consequatur natus error!
-    Ex veniam quibusdam reiciendis earum hic voluptatibus! Totam sint vitae ducimus ea eum. Explicabo harum amet, odio id, nemo odit perferendis modi culpa saepe consequatur, delectus praesentium a? Vel, quasi!
-    Omnis rem fuga quam unde voluptates officia eligendi, exercitationem, modi animi quos saepe maxime. Quis architecto rem autem cum, quaerat aliquam odit sed dolores nihil est veritatis ab, fugit iure.
-    Eos quae quibusdam, molestias magnam rem labore numquam quisquam consequuntur debitis nihil dolor quam similique ipsum ullam sed commodi nemo voluptatem soluta ducimus! Nesciunt repellendus ea a quia doloribus eligendi.
-    Sapiente, deleniti rem asperiores veritatis laboriosam quia ipsa neque placeat exercitationem itaque voluptatum tenetur aliquam ad quod eius amet perspiciatis vel beatae repudiandae corrupti! Explicabo tempora amet dolorum odit debitis!
-    Ipsum amet nulla atque distinctio ipsam. Nobis facilis rerum facere atque ex labore natus deleniti, nesciunt illo architecto id, voluptatibus ipsam commodi provident. Exercitationem nostrum in, est magnam facilis aspernatur.
-    Itaque, voluptates! Vero similique quas nemo ullam debitis corrupti ducimus asperiores officiis, numquam blanditiis enim eum? Doloribus fugit consequuntur et ipsam quidem saepe dolore sed, vel nemo itaque delectus a?
-    Amet veritatis obcaecati non, illo optio quos reprehenderit placeat aspernatur commodi, eos voluptatem quo doloribus dicta rerum! Ad facilis deserunt dolorem ab mollitia nesciunt nulla molestiae animi suscipit distinctio. Voluptatum.
-    Rem ipsam magni est ad omnis a enim maiores vitae, hic magnam nesciunt debitis, deserunt aspernatur dolore illum! Dolores perferendis repellendus esse, facilis ipsa praesentium omnis expedita reprehenderit natus doloribus.
-    Obcaecati corporis cumque facilis eos quas non nihil, eius unde ut vitae laudantium aperiam magnam sint. Magnam exercitationem expedita quam eum deleniti qui illo, autem repellendus, minus quo laudantium sapiente!
-    Amet sed corrupti maiores rem voluptate, quisquam commodi? Eum omnis nulla praesentium optio alias, tempora, accusamus fuga accusantium sequi distinctio facere esse, doloribus architecto ad sunt fugit quo odit velit!
-    In possimus dolores aperiam, omnis id aspernatur minima aut sunt, iusto, impedit modi neque obcaecati officiis. Iste ex molestias quasi voluptatibus consectetur, hic pariatur incidunt illum commodi aspernatur alias vel.
-    Nihil similique harum corrupti. Commodi at perferendis, quam ipsa nostrum incidunt illum totam rerum earum voluptates. Eos, distinctio nobis tempore veritatis nulla molestias perferendis accusantium laboriosam, architecto quos omnis aliquam?
-    Voluptate rem a recusandae quae magni cupiditate eveniet culpa sunt, alias amet saepe ab reiciendis voluptatibus. Mollitia, totam? Assumenda quidem illum dignissimos quo iusto veritatis et doloribus cupiditate eveniet. Tempora.
-    Natus et cupiditate, maxime, blanditiis veniam esse possimus rem atque a unde deserunt? Ad ipsum ut modi? Repellendus facilis, distinctio aut unde nesciunt doloremque non voluptas nam quibusdam exercitationem! Aliquam.
-    Magni nesciunt, dolore illo minus ipsam quis, fuga quas ex deserunt unde, non officiis commodi. Dignissimos dolore, quo alias qui, consequatur sapiente possimus voluptatibus at provident recusandae ratione dolorem incidunt.
-    Dolores aperiam, non similique illo ex, ab obcaecati veniam exercitationem voluptatem ullam reiciendis tenetur ratione veritatis harum, adipisci quia eos expedita omnis. Molestias aut blanditiis cumque dolorem aliquid quae quo!
-    Nostrum tenetur minus sequi asperiores tempore nobis molestiae deleniti facere ducimus ipsa, temporibus ratione voluptas vel iusto! Qui, distinctio dicta! Culpa unde explicabo rerum velit ratione odio numquam, cupiditate quasi?
-    Labore quas non reiciendis, ex qui, soluta possimus suscipit eos ducimus odio facere laborum, commodi molestias. Suscipit accusantium maiores dolorum tempora iusto, consequuntur dicta id provident aliquid, veniam nostrum harum.
-    Expedita accusamus quod veritatis, ipsam dicta eum, possimus fugit molestiae eos impedit ea placeat, obcaecati recusandae at ut corrupti iste. Maxime vitae repudiandae praesentium quas laborum inventore dolorum, enim sunt?
-    Repudiandae debitis assumenda accusantium nisi, vero fuga itaque consectetur voluptatibus dolorem minima ratione saepe vitae earum aliquam odio? Expedita vero molestias in quam soluta ea dolor aspernatur, numquam commodi odit!
-    Ea voluptatum ut nobis, pariatur eveniet necessitatibus fugit saepe, inventore aperiam sint doloremque. Facere eligendi nulla, dolorem corporis provident beatae earum sequi? Nam, odit quam. Voluptates id quaerat earum molestiae.
-    Quas, deleniti repudiandae fuga eum, mollitia nostrum laboriosam veniam a reprehenderit, at nisi hic iste blanditiis fugit repellendus corporis officiis molestias pariatur dicta? Quisquam inventore cum adipisci unde quae dolor.
-    Necessitatibus cupiditate voluptas nemo, fugiat doloremque itaque ipsa suscipit odio quasi laborum consequuntur autem repellat voluptates distinctio. Veniam, a eius! Eum sit, perspiciatis eos labore exercitationem illum voluptate doloremque dolorum.
-    Deleniti, assumenda cum harum voluptatibus eius facilis. Fuga voluptates eveniet explicabo tempora, eius quas tempore, dolorem quis laborum magnam, veniam exercitationem quia soluta est pariatur numquam eum iste nulla facere.
-    Neque illum asperiores labore voluptates repellendus sapiente blanditiis. Officia veniam, odit facere nam numquam molestias debitis quasi placeat provident fuga delectus voluptate soluta quis quidem at pariatur dolores mollitia? Veniam?
-    Eveniet laudantium mollitia, labore ab eos eius id neque molestias harum est exercitationem perferendis sed ipsam atque possimus ullam blanditiis cupiditate maxime laboriosam provident! Qui, voluptas! Nemo sapiente in consequatur?
-    Aperiam quia cumque eum exercitationem. Suscipit commodi obcaecati a quibusdam dolore eaque vero, cupiditate iure expedita sed sapiente voluptas illum nobis tempore, asperiores aliquid saepe sit delectus esse inventore facere.
-    Nostrum laboriosam numquam ea quibusdam inventore rerum maiores ducimus nemo laudantium porro doloribus, vero eos culpa repellat eligendi necessitatibus accusamus fugit deleniti ullam consectetur sunt blanditiis. Placeat eius assumenda hic?
-    Facilis error at quisquam id vero nemo, neque voluptatum nobis perspiciatis aliquid omnis, sapiente perferendis qui. Quod corporis velit optio nesciunt enim molestias et, molestiae, ducimus suscipit autem, consequatur harum?
-    Voluptate alias, repellat, repellendus accusamus atque sit rerum quas accusantium laboriosam mollitia ea qui dolores at minima nobis, facere harum. Unde modi magnam libero eos adipisci, repellendus suscipit quo animi.
-    Repudiandae, dolore porro iure vel error inventore, voluptatem natus perferendis assumenda quaerat impedit iusto quas quia eligendi aperiam ab asperiores culpa doloribus alias. Necessitatibus quo sint at ipsam non ea!
-    Nam repellendus doloremque, quo temporibus debitis cum nostrum sed deserunt nulla rem, dolor incidunt vel! In tempora at libero quod esse asperiores quibusdam commodi beatae non. Maxime impedit accusantium blanditiis.
-    Repellendus sunt nesciunt, officia est ipsum quia sed velit repudiandae libero nisi. Quia officiis, nostrum aliquid velit, voluptatem eaque impedit molestias omnis doloribus magnam sunt ipsam, ea voluptatibus ipsa repellendus.
-    Dolores pariatur sunt fugiat, quasi odio aperiam consequatur, nostrum voluptates autem eveniet mollitia. Dolor obcaecati, praesentium voluptas blanditiis explicabo, minima in voluptatum, maxime numquam at facilis possimus quibusdam molestiae provident?
-    Ut obcaecati suscipit eos sapiente et. Alias, odit veniam perspiciatis quidem nemo voluptate earum dolores ratione sit? Iure rerum ab odit blanditiis consequuntur ullam, veniam, omnis in dolorem id rem!
-    Quidem provident ullam neque consequatur autem ratione quasi, eos ea soluta magni officia! Impedit autem consequatur aut eveniet doloribus. Cupiditate porro dolor itaque officiis voluptatum tempora, aliquid incidunt quidem iste.
-    Saepe accusantium asperiores animi, sequi sit, reprehenderit obcaecati tenetur corrupti perspiciatis, architecto eos. Saepe nulla at enim maxime nam soluta doloremque natus iste magnam. Dicta error sequi iure voluptatem qui.
-    Est, nisi magnam! Consequuntur accusantium quasi dolore voluptatem nesciunt. Sed alias, aliquid nemo veritatis possimus tenetur dolor, a suscipit quidem dicta earum corporis, blanditiis dolorem deleniti doloremque magni voluptate repellendus.
-    Fuga corrupti nesciunt quae fugiat eligendi officiis iste excepturi vel harum porro vitae sequi, inventore ipsa nihil rem magni ut tempore neque suscipit. Sapiente iusto optio eaque aut molestiae doloribus.
-    Iure dolorem expedita quae, ex vitae magni sapiente! Facilis, aliquam quo omnis reiciendis, impedit, soluta commodi corporis dignissimos animi mollitia at est officiis numquam repellendus eligendi ex ipsa repellat officia!
-    Ratione quasi impedit blanditiis iusto facilis atque saepe aut, consectetur error quibusdam exercitationem eius fugiat quae! Voluptatum rerum explicabo quasi. Quae at accusamus voluptate id vitae officiis nulla, facere repellat!
-    Quasi maxime tempora blanditiis cupiditate laborum in pariatur voluptas impedit saepe magnam, molestias ratione minima dolore debitis repellendus reprehenderit dolorum voluptatum voluptates expedita temporibus quisquam numquam excepturi, sequi perspiciatis? Facilis.
-    Fugiat, libero architecto deserunt aliquam doloremque et mollitia voluptatum debitis aperiam? Eaque asperiores labore necessitatibus dolorum dolor beatae possimus, alias odit velit corporis aliquid quas voluptas assumenda soluta eius fugiat.
-    Amet, ipsam sit sed, error ipsa provident labore illum voluptates inventore, quam officia voluptatem distinctio saepe rerum. Culpa aperiam, repellendus aut, accusamus hic recusandae quos molestias voluptas sed minima aliquid.
-    Error facilis ad vero sed corporis iste eos accusamus asperiores autem. Magni saepe quidem quas ad nesciunt repellendus suscipit vel aliquam in nostrum unde, nisi laboriosam? Est nesciunt id alias.
-    Totam voluptatibus consequatur sit laboriosam velit, repellendus reprehenderit unde deleniti magnam accusantium ex deserunt asperiores libero. Quasi eos labore, dolorem culpa maxime alias sed quo dicta ipsa autem corrupti ab.
-    Saepe aperiam accusamus eius numquam similique esse rerum vero ut praesentium earum, dolor porro inventore explicabo consectetur error. Eos maiores doloribus, voluptates minus laborum temporibus maxime. Dolore ad dolorum natus.
-    Minima illo doloremque nisi temporibus accusamus voluptatem quam praesentium unde at inventore facilis amet, cum natus odit. Quas sit cumque perspiciatis, culpa ad sint, laborum, aliquid iure eum ducimus aliquam.
-    Maiores eveniet eos officiis labore cum deserunt doloribus sed beatae accusantium odio soluta illo iste, modi eum! Quo sunt asperiores voluptate reprehenderit nostrum mollitia, modi sequi error corrupti, deleniti maxime.
-    Officiis quod repellendus in culpa ipsum eligendi quidem at fugiat cumque nisi blanditiis nulla, est quis velit molestiae. Aliquid veniam vero commodi, illo magni reiciendis dolores sequi consectetur suscipit voluptas.
-    Aperiam, beatae eum. Veritatis natus sapiente voluptates quasi fuga alias id sint qui laudantium libero, vitae nisi enim magnam totam quia. Quibusdam neque facere perspiciatis soluta natus, sequi odit et!
-    Voluptas enim dicta repellendus, molestias quasi illum veritatis architecto eos, magnam numquam tenetur dolorum necessitatibus. Rerum nisi totam illum fugit, ex ipsam labore, dolorem placeat, ut iste mollitia temporibus nam.
-    Magni, vitae illo quaerat ipsum saepe vel animi facere et laborum dolores recusandae sapiente, consequuntur nostrum, dolore sed esse! Molestias repudiandae officia facere iusto tenetur distinctio ut ducimus architecto nemo!
-    Facilis, voluptate ea in dolorem cumque dicta nobis, architecto perferendis maxime blanditiis saepe numquam neque quo quis! Fuga id, soluta corrupti illo eaque voluptas omnis magni nesciunt alias? Quas, vel?
-    Repellat omnis sint asperiores quisquam, nemo ab quis odio vitae alias incidunt praesentium aut reprehenderit totam nihil doloribus facere exercitationem adipisci possimus? Molestias, mollitia natus et similique blanditiis veritatis consequuntur?
-    Dolore sapiente iure ducimus perspiciatis officiis veniam quibusdam mollitia laboriosam ut consequuntur enim vel dicta iste nobis perferendis sunt fuga, dignissimos nulla illum soluta eveniet cum modi, reiciendis aliquid. Vero?
-    Voluptate perspiciatis similique rem possimus! Nam ad porro repellendus quasi molestiae, iste eligendi possimus natus pariatur eum nobis odit qui tempora, vitae facere dolore similique reiciendis ratione fugit exercitationem ipsa!
-    Tenetur, sint ab, officiis magni nemo sapiente saepe quos, iusto ipsa quam mollitia corporis impedit blanditiis excepturi voluptatem voluptate dolore incidunt nostrum. Delectus nisi quae quaerat ipsam, modi vitae corporis.
-    Exercitationem illo, eius enim beatae doloremque atque aut illum inventore officiis quisquam adipisci et? Quidem labore alias fugit enim! Nisi quisquam exercitationem debitis, in earum ratione nobis fuga sed neque.
-    Laboriosam a soluta doloremque mollitia, adipisci tempore ipsam culpa. Nobis, ex sapiente. Tempore, fugit ipsum ut vitae, dolorum, sit ipsam ab natus quae nesciunt quibusdam ad quia reprehenderit doloribus molestias!
-    Officia sit, tenetur accusamus doloribus porro numquam blanditiis quam quo veritatis at vitae optio voluptate et quidem deserunt! Assumenda deleniti pariatur blanditiis quidem autem animi perspiciatis nulla doloribus consequuntur esse?
-    Adipisci totam fuga facere ipsa quasi cupiditate nam reiciendis aperiam beatae molestias, saepe incidunt dolores praesentium fugiat omnis sapiente, nobis perferendis? Quod perferendis et qui odit voluptatibus dolor quo quasi.
-    Rem quaerat amet unde aperiam. Ipsum maxime eum expedita blanditiis vitae sint, iure ipsa, quod ipsam corporis doloribus temporibus excepturi aspernatur nostrum magni illum nesciunt. Enim ipsam accusantium unde tenetur.
-    Delectus quasi voluptate corporis accusantium? Voluptatem tenetur officia cupiditate fugiat nisi sunt. Unde odio laudantium vel delectus provident non repellat, molestiae sed. Eligendi praesentium impedit reiciendis possimus itaque, obcaecati facilis!
-    Delectus tempora explicabo a molestias ipsam inventore necessitatibus nemo. Sit vel, aperiam laboriosam veniam nostrum ipsam ex repellendus voluptates! Consequuntur culpa saepe amet qui fugiat aperiam nesciunt accusantium aliquam optio!
-    Iste sint veniam accusantium officiis exercitationem nulla, quisquam labore consectetur laborum explicabo consequuntur facere et odit voluptates magni blanditiis. Corporis modi iste aperiam asperiores dolore maiores cum quibusdam tempora molestiae.
-    Harum, tempora sequi. Saepe fugit corporis laudantium iusto. Voluptatibus officiis excepturi ex asperiores. Dolore consequuntur in similique doloremque, sint rerum assumenda? Autem, quia tenetur. Reiciendis at odit quas. Alias, modi!
-    Ad cumque architecto at nisi cum quo unde earum quidem quod, repellendus perferendis praesentium repudiandae dicta expedita aliquid? Dolorum beatae commodi accusamus eligendi quaerat! Repellendus, voluptates dignissimos? Sunt, qui libero.
-    Accusamus quam earum odit optio eum provident ullam doloremque aperiam minima ex asperiores labore, quaerat, expedita, modi ratione error repellendus illum facilis architecto? Corrupti obcaecati, dolor consequuntur exercitationem fugiat expedita.
-    Recusandae dolor repudiandae provident tempora facere nostrum atque ut possimus et maxime. Sed temporibus nesciunt inventore repudiandae hic excepturi at vero. Enim dolor dolore laboriosam, consequatur est magnam non voluptatibus.
-    Non veritatis totam placeat sit nobis omnis inventore saepe officia, dolorem, fugiat nesciunt, doloremque numquam voluptatem! Id corrupti dolore, quisquam laborum culpa, rem vero fugiat commodi, eum molestias sequi laudantium.
-    Dolorum possimus vitae numquam sed asperiores cum, eos quae sapiente, autem amet pariatur, totam tempore voluptatum quidem eum delectus earum quo libero accusamus. Officiis rem sequi animi architecto quod ex.
-    Temporibus amet porro placeat voluptatum aliquid necessitatibus accusantium voluptate provident veritatis quas sed maxime quasi sit, quo ad impedit vel reprehenderit magni obcaecati corporis? Rem nobis aspernatur temporibus. Quos, repellendus. Mehdi
-    </div>
-  )
-}
+    <div className="w-full h-full flex flex-col gap-2.5 overflow-hidden">
+      <div className="shrink-0 flex items-center justify-between md:px-2.5 header">
+        <div className="relative h-8 rounded-md overflow-hidden border border-neutral-700 hidden md:block min-w-10 lg:min-w-md ">
+          <input type="text" className="bg-neutral-800/50 w-full h-full pl-8" />
+          <Search
+            size={18}
+            className="absolute top-1/2 -translate-y-1/2 left-2"
+          />
+        </div>
+        <div className="flex items-center gap-2">
+          <button className="flex items-center justify-center gap-1 px-2.5 py-1.5 bg-purple-500/10 rounded-md text-purple-500 cursor-pointer hover:bg-purple-500/25 transition-all duration-300">
+            <Plus size={16} strokeWidth={3} />
+            <span className="text-sm font-semibold">New Board</span>
+          </button>
+          <button className="flex items-center justify-center gap-1 px-2.5 py-1.5 bg-purple-500/10 rounded-md text-purple-500 cursor-pointer hover:bg-purple-500/25 transition-all duration-300">
+            <Plus size={16} strokeWidth={3} />
+            <span className="text-sm font-semibold">New Board</span>
+          </button>
+        </div>
+      </div>
+      <div className="flex-1 min-h-0 overflow-auto scrollbar-hide md:px-2.5 mb-20 md:mb-0 content">
+        <div className="flex flex-col sm:flex-row gap-8">
+          <div className="w-full sm:w-80 shrink-0 section flex flex-col gap-4 shadow-xl">
+            <h1 className="py-3 px-4 border border-neutral-800 rounded-md bg-purple-600 mt-2 title-section sticky top-0 shadow-2xl z-50">
+              Todo
+            </h1>
+            {tasks.map((task) => (
+              <div
+                key={task.id}
+                className="p-4 border border-neutral-800 bg-neutral-800/10 rounded-md flex flex-col gap-1 hover:bg-neutral-800/70 transition-all duration-300"
+              >
+                <div className="flex items-center justify-between gap-2 header">
+                  <div className="flex items-center gap-2">
+                    {task.labels.slice(0, 3).map((label, index) => (
+                      <span
+                        className={`px-2 py-1 rounded-sm text-xs ${getLabelColor(
+                          label
+                        )}`}
+                        key={index}
+                      >
+                        # {label}
+                      </span>
+                    ))}
+                  </div>
+                  <button className="">
+                    <EllipsisVertical size={16} strokeWidth={1} />
+                  </button>
+                </div>
+                <div className="content flex flex-col gap-2">
+                  <div className="flex items-start gap-2 mt-2">
+                    <button className="cursor-pointer">
+                      <Circle
+                        size={20}
+                        className={`text-${priorityColors[task.priority]}`}
+                      />
+                    </button>
+                    <h2 className="title font-semibold -mt-1">{task.title}</h2>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    {task.deadline && (
+                      <div className="flex items-center gap-1 text-neutral-500">
+                        <CalendarCheck size={14} strokeWidth={1} />
+                        <span className="text-xs">
+                          {new Date(task.deadline).toLocaleString("en-US", {
+                            month: "short",
+                            day: "numeric",
+                            year: "numeric",
+                            hour: "2-digit",
+                            minute: "2-digit",
+                          })}
+                        </span>
+                      </div>
+                    )}
+                    {task.subtasks && (
+                      <div className="flex items-center gap-1 text-xs text-neutral-500">
+                        <GitMerge size={14} strokeWidth={1} />
+                        <span>
+                          {
+                            task.subtasks.filter((sub) => sub.status === "done")
+                              .length
+                          }
+                          /{task.subtasks.length}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                  <p className="labels text-xs text-neutral-500 flex items-center justify-end gap-2">
+                    <span>{task.project || "Inbox"}</span>
+                  </p>
+                </div>
+                {task.subtasks &&
+                  task.subtasks.length > 0 &&
+                  (() => {
+                    const completed = task.subtasks.filter(
+                      (sub) => sub.status === "done"
+                    ).length;
+                    const total = task.subtasks.length;
+                    const progress = Math.round((completed / total) * 100);
 
-export default Inbox
+                    return (
+                      <>
+                        <div className="flex flex-col progress">
+                          <span className="text-xs font-semibold block">
+                            Progress
+                          </span>
+                          <div className="w-full h-1 bg-neutral-800 my-2 relative rounded-full overflow-hidden">
+                            <div
+                              className={`h-full bg-${
+                                priorityColors[task.priority]
+                              } absolute top-0 left-0 transition-all duration-300`}
+                              style={{ width: `${progress}%` }}
+                            />
+                          </div>
+                          <span className="text-xs block text-end">
+                            {progress}%
+                          </span>
+                        </div>
+                        <hr className="my-1 border-neutral-800" />
+                      </>
+                    );
+                  })()}
+                <div className="flex justify-between items-center mt-2">
+                  <div className="flex items-center gap-2">
+                    <div className="flex items-center">
+                      <img
+                        src={avatarImg}
+                        alt="avatar"
+                        className="w-6 rounded-full border-2 border-neutral-500"
+                      />
+                      <img
+                        src={avatarImg}
+                        alt="avatar"
+                        className="w-6 rounded-full border-2 -ml-4 border-neutral-500"
+                      />
+                      <img
+                        src={avatarImg}
+                        alt="avatar"
+                        className="w-6 rounded-full border-2 -ml-4 border-neutral-500"
+                      />
+                      <img
+                        src={avatarImg}
+                        alt="avatar"
+                        className="w-6 rounded-full border-2 -ml-4 border-neutral-500"
+                      />
+                    </div>
+                    <p className="text-xs text-neutral-500">Des 21, 2025</p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <button className="flex items-center gap-1">
+                      <MessageSquare size={12} strokeWidth={1} />
+                      <span className="text-xs">2</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="w-full sm:w-80 shrink-0 section flex flex-col gap-4 shadow-xl">
+            <h1 className="py-3 px-4 border border-neutral-800 rounded-md bg-purple-600 mt-2 title-section sticky top-0 shadow-2xl z-50">
+              In Progress
+            </h1>
+            <div className="w-full sm:w-80 h-full shrink-0 section flex flex-col gap-4 shadow-xl">
+              {tasks.map((task) => (
+                <div
+                  key={task.id}
+                  className="p-4 border border-neutral-800 bg-neutral-800/10 rounded-md flex flex-col gap-1 hover:bg-neutral-800/70 transition-all duration-300"
+                >
+                  <div className="flex items-center justify-between gap-2 header">
+                    <div className="flex items-center gap-2">
+                      {task.labels.slice(0, 3).map((label, index) => (
+                        <span
+                          className={`px-2 py-1 rounded-sm text-xs ${getLabelColor(
+                            label
+                          )}`}
+                          key={index}
+                        >
+                          # {label}
+                        </span>
+                      ))}
+                    </div>
+                    <button className="">
+                      <EllipsisVertical size={16} strokeWidth={1} />
+                    </button>
+                  </div>
+                  <div className="content flex flex-col gap-2">
+                    <div className="flex items-start gap-2 mt-2">
+                      <button className="cursor-pointer">
+                        <Circle
+                          size={20}
+                          className={`text-${priorityColors[task.priority]}`}
+                        />
+                      </button>
+                      <h2 className="title font-semibold -mt-1">
+                        {task.title}
+                      </h2>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      {task.deadline && (
+                        <div className="flex items-center gap-1 text-neutral-500">
+                          <CalendarCheck size={14} strokeWidth={1} />
+                          <span className="text-xs">
+                            {new Date(task.deadline).toLocaleString("en-US", {
+                              month: "short",
+                              day: "numeric",
+                              year: "numeric",
+                              hour: "2-digit",
+                              minute: "2-digit",
+                            })}
+                          </span>
+                        </div>
+                      )}
+                      {task.subtasks && (
+                        <div className="flex items-center gap-1 text-xs text-neutral-500">
+                          <GitMerge size={14} strokeWidth={1} />
+                          <span>
+                            {
+                              task.subtasks.filter(
+                                (sub) => sub.status === "done"
+                              ).length
+                            }
+                            /{task.subtasks.length}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                    <p className="labels text-xs text-neutral-500 flex items-center justify-end gap-2">
+                      <span>{task.project || "Inbox"}</span>
+                    </p>
+                  </div>
+                  {task.subtasks &&
+                    task.subtasks.length > 0 &&
+                    (() => {
+                      const completed = task.subtasks.filter(
+                        (sub) => sub.status === "done"
+                      ).length;
+                      const total = task.subtasks.length;
+                      const progress = Math.round((completed / total) * 100);
+
+                      return (
+                        <>
+                          <div className="flex flex-col progress">
+                            <span className="text-xs font-semibold block">
+                              Progress
+                            </span>
+                            <div className="w-full h-1 bg-neutral-800 my-2 relative rounded-full overflow-hidden">
+                              <div
+                                className={`h-full bg-${
+                                  priorityColors[task.priority]
+                                } absolute top-0 left-0 transition-all duration-300`}
+                                style={{ width: `${progress}%` }}
+                              />
+                            </div>
+                            <span className="text-xs block text-end">
+                              {progress}%
+                            </span>
+                          </div>
+                          <hr className="my-1 border-neutral-800" />
+                        </>
+                      );
+                    })()}
+                  <div className="flex justify-between items-center mt-2">
+                    <div className="flex items-center gap-2">
+                      <div className="flex items-center">
+                        <img
+                          src={avatarImg}
+                          alt="avatar"
+                          className="w-6 rounded-full border-2 border-neutral-500"
+                        />
+                        <img
+                          src={avatarImg}
+                          alt="avatar"
+                          className="w-6 rounded-full border-2 -ml-4 border-neutral-500"
+                        />
+                        <img
+                          src={avatarImg}
+                          alt="avatar"
+                          className="w-6 rounded-full border-2 -ml-4 border-neutral-500"
+                        />
+                        <img
+                          src={avatarImg}
+                          alt="avatar"
+                          className="w-6 rounded-full border-2 -ml-4 border-neutral-500"
+                        />
+                      </div>
+                      <p className="text-xs text-neutral-500">Des 21, 2025</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <button className="flex items-center gap-1">
+                        <MessageSquare size={12} strokeWidth={1} />
+                        <span className="text-xs">2</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="w-full sm:w-80 shrink-0 section flex flex-col gap-4 shadow-xl">
+            <div className="w-full sm:w-80 h-full shrink-0 section flex flex-col gap-4 shadow-xl">
+              <h1 className="py-3 px-4 border border-neutral-800 rounded-md bg-purple-600 mt-2 title-section sticky top-0 shadow-2xl z-50">
+                Review
+              </h1>
+              {tasks.map((task) => (
+                <div
+                  key={task.id}
+                  className="p-4 border border-neutral-800 bg-neutral-800/10 rounded-md flex flex-col gap-1 hover:bg-neutral-800/70 transition-all duration-300"
+                >
+                  <div className="flex items-center justify-between gap-2 header">
+                    <div className="flex items-center gap-2">
+                      {task.labels.slice(0, 3).map((label, index) => (
+                        <span
+                          className={`px-2 py-1 rounded-sm text-xs ${getLabelColor(
+                            label
+                          )}`}
+                          key={index}
+                        >
+                          # {label}
+                        </span>
+                      ))}
+                    </div>
+                    <button className="">
+                      <EllipsisVertical size={16} strokeWidth={1} />
+                    </button>
+                  </div>
+                  <div className="content flex flex-col gap-2">
+                    <div className="flex items-start gap-2 mt-2">
+                      <button className="cursor-pointer">
+                        <Circle
+                          size={20}
+                          className={`text-${priorityColors[task.priority]}`}
+                        />
+                      </button>
+                      <h2 className="title font-semibold -mt-1">
+                        {task.title}
+                      </h2>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      {task.deadline && (
+                        <div className="flex items-center gap-1 text-neutral-500">
+                          <CalendarCheck size={14} strokeWidth={1} />
+                          <span className="text-xs">
+                            {new Date(task.deadline).toLocaleString("en-US", {
+                              month: "short",
+                              day: "numeric",
+                              year: "numeric",
+                              hour: "2-digit",
+                              minute: "2-digit",
+                            })}
+                          </span>
+                        </div>
+                      )}
+                      {task.subtasks && (
+                        <div className="flex items-center gap-1 text-xs text-neutral-500">
+                          <GitMerge size={14} strokeWidth={1} />
+                          <span>
+                            {
+                              task.subtasks.filter(
+                                (sub) => sub.status === "done"
+                              ).length
+                            }
+                            /{task.subtasks.length}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                    <p className="labels text-xs text-neutral-500 flex items-center justify-end gap-2">
+                      <span>{task.project || "Inbox"}</span>
+                    </p>
+                  </div>
+                  {task.subtasks &&
+                    task.subtasks.length > 0 &&
+                    (() => {
+                      const completed = task.subtasks.filter(
+                        (sub) => sub.status === "done"
+                      ).length;
+                      const total = task.subtasks.length;
+                      const progress = Math.round((completed / total) * 100);
+
+                      return (
+                        <>
+                          <div className="flex flex-col progress">
+                            <span className="text-xs font-semibold block">
+                              Progress
+                            </span>
+                            <div className="w-full h-1 bg-neutral-800 my-2 relative rounded-full overflow-hidden">
+                              <div
+                                className={`h-full bg-${
+                                  priorityColors[task.priority]
+                                } absolute top-0 left-0 transition-all duration-300`}
+                                style={{ width: `${progress}%` }}
+                              />
+                            </div>
+                            <span className="text-xs block text-end">
+                              {progress}%
+                            </span>
+                          </div>
+                          <hr className="my-1 border-neutral-800" />
+                        </>
+                      );
+                    })()}
+                  <div className="flex justify-between items-center mt-2">
+                    <div className="flex items-center gap-2">
+                      <div className="flex items-center">
+                        <img
+                          src={avatarImg}
+                          alt="avatar"
+                          className="w-6 rounded-full border-2 border-neutral-500"
+                        />
+                        <img
+                          src={avatarImg}
+                          alt="avatar"
+                          className="w-6 rounded-full border-2 -ml-4 border-neutral-500"
+                        />
+                        <img
+                          src={avatarImg}
+                          alt="avatar"
+                          className="w-6 rounded-full border-2 -ml-4 border-neutral-500"
+                        />
+                        <img
+                          src={avatarImg}
+                          alt="avatar"
+                          className="w-6 rounded-full border-2 -ml-4 border-neutral-500"
+                        />
+                      </div>
+                      <p className="text-xs text-neutral-500">Des 21, 2025</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <button className="flex items-center gap-1">
+                        <MessageSquare size={12} strokeWidth={1} />
+                        <span className="text-xs">2</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Inbox;
