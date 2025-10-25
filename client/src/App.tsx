@@ -7,6 +7,10 @@ const App = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    document.title = "Twin List"
+  }, [])
+
+  useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
     }, 3000);

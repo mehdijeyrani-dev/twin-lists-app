@@ -41,12 +41,31 @@
   }
 }
 
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
+.add-section-btn::after,
+.add-section-btn::before {
+  content: "";
+  flex: 1 1;
+  border-bottom: 2px solid var(--color-purple-500);
+  margin-block: auto;
 }
 
+.add-section-btn::after {
+  margin-left: 1rem;
+}
 
+.add-section-btn::before {
+  margin-right: 1rem;
+}
+
+button {
+  cursor: pointer;
+}
+
+.simplebar-scrollbar::before {
+  background: var(--color-neutral-700) !important;
+  width: 5px !important;
+}
+
+.simplebar-scrollbar:hover:before {
+  background-color: var(--color-neutral-700) !important;
+}

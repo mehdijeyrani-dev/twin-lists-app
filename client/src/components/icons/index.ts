@@ -15,6 +15,16 @@ import SearchIcon from "./SearchIcon";
 import SettingsIcon from "./SettingsIcon";
 import SunIcon from "./SunIcon";
 import GroupIcon from "./GroupIcon";
+import MenuIcon from "./MenuIcon";
+import ColumnIcon from "./ColumnIcon";
+import CalenderGridIcon from "./CalenderGridIcon";
+import CompactIcon from "./CompactIcon";
+import GridViewIcon from "./GridViewIcon";
+import UserIcon from "./UserIcon";
+import PlusSignCircleIcon from "./PlusSignCircleIcon";
+import MoreVerticalIcon from "./MoreVerticalIcon";
+import ArrowUpDownIcon from "./ArrowUpDownIcon";
+import ArrowDownIcon from "./ArrowDownIcon";
 
 export const Icon = {
   Add: AddIcon,
@@ -34,4 +44,14 @@ export const Icon = {
   Settings: SettingsIcon,
   Sun: SunIcon,
   Group: GroupIcon,
+  Menu: MenuIcon,
+  Column: ColumnIcon,
+  CalenderGrid: CalenderGridIcon,
+  Compact: CompactIcon,
+  GridView: GridViewIcon,
+  User: UserIcon,
+  PlusSignCircle: PlusSignCircleIcon,
+  MoreVertical: MoreVerticalIcon,
+  ArrowUpDown: ArrowUpDownIcon,
+  ArrowDown: ArrowDownIcon,
 };

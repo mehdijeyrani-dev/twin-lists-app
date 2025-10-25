@@ -1,19 +1,12 @@
 import { Outlet } from "react-router-dom";
 import Footer from "./Footer";
 import Header from "./Header";
-import { useUIStore } from "@/store/useUIStore";
 
 const MainSection = () => {
-  const { isAddTaskModalOpen } = useUIStore();
-
   return (
-    <main className="flex flex-col flex-1 overflow-auto gap-2.5 relative pb-2 md:pb-0">
+    <main className="flex flex-col flex-1 relative md:pb-0 overflow-hidden">
       <Header />
-      <div
-        className={`flex-1 min-h-0 transition-all duration-200 px-2.5 ${
-          isAddTaskModalOpen ? "!overflow-hidden" : "overflow-auto"
-        }`}
-      >
+      <div className={`flex-1 min-h-0 transition-all duration-200 `}>
         <Outlet />
       </div>
       <Footer />

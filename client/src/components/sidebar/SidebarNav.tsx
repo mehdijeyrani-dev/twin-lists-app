@@ -20,7 +20,7 @@ const SidebarNav = ({ isSidebarOpen }: SidebarNavProps) => {
         <span>Inbox</span>
       </NavLink>
       <NavLink
-        to={"/"}
+        to={"/today"}
         className="flex items-center gap-2 bg-transparent w-full p-2 rounded-sm hover:bg-neutral-800/50 transition-all duration-200 cursor-pointer"
       >
         <Icon.Calender size={20} />

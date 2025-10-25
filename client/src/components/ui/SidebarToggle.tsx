@@ -11,7 +11,7 @@ const SidebarToggle = () => {
       className={`absolute top-5 z-10 size-9 place-content-center rounded-md bg-[#1E1E1E] transition-all duration-500 hover:bg-neutral-800 hidden md:grid cursor-pointer
             ${
               isSidebarOpen
-                ? "left-[calc(30%-1rem)] lg:left-[calc(20%-1rem)]"
+                ? "left-[calc(30%-1.1rem)] lg:left-[calc(20%-1.2rem)]"
                 : "left-5.5"
             }`}
     >
