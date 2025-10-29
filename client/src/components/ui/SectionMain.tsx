@@ -12,7 +12,7 @@ const formatted = date.toLocaleString("en-US", {
 
 const SectionMain = () => {
   return (
-    <div className="max-h-[calc(100dvh-8rem)] min-h-0 overflow-y-auto flex flex-col gap-2">
+    <div className="flex flex-col gap-2">
       {Array.from({ length: 10 }, (_, i) => (
         <div key={i} className="bg-neutral-900 p-3 rounded flex gap-2">
           <div className="">

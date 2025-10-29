@@ -3,10 +3,12 @@ import Footer from "./Footer";
 import Header from "./Header";
 
 const MainSection = () => {
+
   return (
-    <main className="flex flex-col flex-1 relative md:pb-0 overflow-hidden">
+    <main className="flex-1 flex flex-col gap-2 relative overflow-hidden p-2.5 h-dvh ">
       <Header />
-      <div className={`flex-1 min-h-0 transition-all duration-200 `}>
+      <hr className="border-neutral-800" />
+      <div className={`flex-1 transition-all duration-200 h-full`}>
         <Outlet />
       </div>
       <Footer />

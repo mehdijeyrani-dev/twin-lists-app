@@ -7,8 +7,8 @@ const Header = () => {
 
   return (
     <header
-      className={`header h-fit p-2.5 md:p-5 flex justify-between items-center transition-all duration-300 border-b md:border-0 border-neutral-800 ${
-        isSidebarOpen && "md:pl-7"
+      className={`pb-2.5 md:p-2.5 flex justify-between items-center transition-all duration-300 ${
+        isSidebarOpen && "md:ml-4"
       }`}
     >
       <div
@@ -20,14 +20,14 @@ const Header = () => {
           <Icon.Bell strokeWidth={1} className="w-4 h-4 md:w-5 md:h-5" />
           <span className="absolute size-2 rounded-full bg-rose-500 right-2 top-2" />
         </button>
-        <button className="size-9 place-content-center cursor-pointer bg-transparent rounded-md hover:bg-neutral-800 transition-all duration-300 grid">
+        <button className="size-9 place-content-center cursor-pointer bg-neutral-800/70 md:bg-transparent rounded-md hover:bg-neutral-800 transition-all duration-300 grid">
           <Icon.Sun strokeWidth={1} className="w-4 h-4 md:w-5 md:h-5" />
         </button>
         <button className="size-9 place-content-center cursor-pointer bg-transparent rounded-md hover:bg-neutral-800 transition-all duration-300 grid md:hidden">
           <Icon.User strokeWidth={1} size={16} />
         </button>
       </div>
-      <div className="w-20 md:w-24 xl:w-28">
+      <div className="w-24 xl:w-28">
         <img
           src={logoImg}
           alt="Twin Lists"

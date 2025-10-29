@@ -12,7 +12,7 @@ const SidebarToggle = () => {
             ${
               isSidebarOpen
                 ? "left-[calc(30%-1.1rem)] lg:left-[calc(20%-1.2rem)]"
-                : "left-5.5"
+                : "left-5"
             }`}
     >
       {isSidebarOpen ? (

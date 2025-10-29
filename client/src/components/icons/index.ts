@@ -25,6 +25,7 @@ import PlusSignCircleIcon from "./PlusSignCircleIcon";
 import MoreVerticalIcon from "./MoreVerticalIcon";
 import ArrowUpDownIcon from "./ArrowUpDownIcon";
 import ArrowDownIcon from "./ArrowDownIcon";
+import MessageIcon from "./MessageIcon";
 
 export const Icon = {
   Add: AddIcon,
@@ -54,4 +55,5 @@ export const Icon = {
   MoreVertical: MoreVerticalIcon,
   ArrowUpDown: ArrowUpDownIcon,
   ArrowDown: ArrowDownIcon,
+  Message: MessageIcon,
 };

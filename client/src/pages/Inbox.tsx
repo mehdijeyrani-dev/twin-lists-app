@@ -1,98 +1,20 @@
-import { Icon } from "@/components/icons";
-import Board from "@/components/inbox/Board";
-import List from "@/components/inbox/List";
-import { useUIStore } from "@/store/useUIStore";
-import React, { useState, type JSX } from "react";
+import InboxToolbar from "@/components/inbox/InboxToolbar";
+import { useState } from "react";
 
 type ViewType = "list" | "board" | "calender" | "compact";
 
-const views: { type: ViewType; label: string; icon: JSX.Element }[] = [
-  { type: "list", label: "List", icon: <Icon.Menu size={18} /> },
-  { type: "board", label: "Board", icon: <Icon.Column size={18} /> },
-  {
-    type: "calender",
-    label: "Calender",
-    icon: <Icon.CalenderGrid size={18} />,
-  },
-  { type: "compact", label: "Compact", icon: <Icon.Compact size={18} /> },
-];
-
 const Inbox = () => {
-  const { isSidebarOpen } = useUIStore();
-  const [viewType, setViewType] = useState<ViewType>("list");
+  const [viewType, setViewType] = useState<ViewType>("board");
+  const itemCount = 10;
 
   return (
-    <div
-      className={`w-full h-full transition-all duration-300 ${
-        !isSidebarOpen && "px-0 md:px-5"
-      }`}
-    >
-      <div className={`toolbar flex items-center justify-between text-neutral-400 py-2.5 border-b border-neutral-800 ${isSidebarOpen && "px-2"}`}>
-        <div className="left flex items-center gap-2 md:gap-2 w-full">
-          <div className="view items-center gap-2 hidden lg:flex bg-[#1e1e1e] p-1.5 rounded-md inset-shadow-xl">
-            {views.map(({ type, label, icon }) => {
-              const isActive = viewType === type;
-              return (
-                <button
-                  key={type}
-                  className={`flex items-center gap-1.5 text-sm py-1 px-3 rounded-sm transition-all duration-200 shadow-2xl ${
-                    isActive && "text-neutral-100 bg-neutral-500/20"
-                  }`}
-                  onClick={() => setViewType(type)}
-                >
-                  {icon}
-                  <span>{label}</span>
-                </button>
-              );
-            })}
-          </div>
-          <div className="w-0.5 h-6 bg-neutral-700" />
-          <span className="text-xs md:text-base font-semibold">
-            Inbox
-            <strong className="bg-neutral-800 px-1 py-0.5 rounded-sm ml-1 md:ml-2 border border-neutral-700 font-semibold">
-              12
-            </strong>
-          </span>
-          <div className="viewMobile block lg:hidden">
-            <button className="flex items-center gap-1 border border-neutral-700 px-2 py-1 rounded-sm hover:bg-neutral-800 text-xs">
-              <Icon.GridView size={12} />
-              <span>View</span>
-            </button>
-          </div>
-        </div>
-        <div className="right shrink-0">
-          <div className="items-center gap-2 hidden md:flex">
-            <button className="text-purple-400 items-center gap-1 border border-transparent hover:border-purple-500/50 bg-purple-500/10 px-1.5 py-1 transition-all duration-300 rounded-md hidden md:flex text-sm cursor-pointer">
-              <Icon.PlusSignCircle size={16} />
-              <span>Add Section</span>
-            </button>
-            <button className="text-neutral-400 items-center gap-1 hover:bg-neutral-800/50 px-1.5 py-1 transition-all duration-300 rounded-md hidden md:flex text-sm cursor-pointer border border-transparent hover:border-neutral-700">
-              <Icon.ArrowUpDown size={16} />
-              <span>Sort</span>
-              <Icon.ArrowDown size={12} className="ml-1" />
-            </button>
-            <button className="text-neutral-400 items-center gap-1 hover:bg-neutral-800/50 px-1.5 py-1 transition-all duration-300 rounded-md hidden md:flex text-sm cursor-pointer border border-transparent hover:border-neutral-700">
-              <Icon.Filter size={16} />
-              <span>Filter</span>
-              <Icon.ArrowDown size={12} className="ml-1" />
-            </button>
-          </div>
-          <button className="md:hidden">
-            <Icon.MoreVertical size={20} strokeWidth={3} />
-          </button>
-        </div>
-      </div>
-      <div className="content p-2.5">
-        {viewType === "list" ? (
-          <List />
-        ) : viewType === "board" ? (
-          <Board />
-        ) : viewType === "calender" ? (
-          <div>Calender</div>
-        ) : (
-          <div>Compact</div>
-        )}
-      </div>
+    <div className="flex flex-col gap-2 w-full">
+      <InboxToolbar
+        viewType={viewType}
+        setViewType={setViewType}
+        itemCount={itemCount}
+      />
+     <div className="bg-neutral-900 w-full h-[calc(100dvh-10rem)] flex-1 main overflow-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore rem, placeat alias inventore rerum quia nisi, nobis, voluptatum voluptate temporibus ipsam at. Eos a nam animi pariatur exercitationem molestias? Aspernatur exercitationem excepturi ea consectetur non dolorum quam omnis voluptate eius atque nostrum error repellat, magni obcaecati dolorem beatae unde itaque odit. Dolor sit iure doloribus, laborum est quod dolorem similique voluptas culpa iste non sint dolorum, ullam quas quia eveniet illo laboriosam rerum ab nesciunt. Illum aut consequatur fugiat repudiandae a, nisi ullam dolor rerum iusto sit voluptate omnis repellendus, fuga, qui officiis maxime laboriosam dignissimos necessitatibus error corrupti ad nam distinctio asperiores vero. Ea magnam distinctio soluta dolorem quis minima veniam rerum labore repudiandae numquam eum accusantium praesentium earum aliquid atque nemo ut quisquam tempore, nisi dolores excepturi tempora est! Vero eos sapiente repellendus voluptates repellat praesentium eum quasi distinctio, similique architecto repudiandae dolorum cum voluptas numquam labore veniam nesciunt laborum quam! Iste excepturi libero, consequuntur inventore vitae cupiditate culpa at saepe suscipit molestias iusto maiores ducimus, natus, magni sint optio recusandae odit ratione earum delectus ipsa aut similique consectetur numquam. Earum, praesentium aspernatur id modi sed, vero blanditiis consectetur voluptatum ea veniam, porro vel voluptatibus repellendus aut. Fugit distinctio voluptatibus voluptate. Sit nulla obcaecati doloremque? Asperiores dicta incidunt culpa et, at facilis dolorem inventore, doloremque libero nesciunt quis debitis enim consequuntur repellat omnis provident nostrum earum eaque! Sint dolore dicta fugit quaerat neque voluptates necessitatibus itaque fugiat iste consequatur? Provident, voluptates possimus, laboriosam delectus perspiciatis veritatis eos reiciendis adipisci accusantium officia dicta exercitationem repudiandae magnam, in tempora. Reprehenderit non eos sequi natus ipsum atque rem praesentium quisquam explicabo laborum dolorum placeat neque maxime nesciunt saepe, nam quis sit voluptates error. Tempora laborum nam ex aperiam vel eum porro hic est, dolorum nostrum numquam, accusamus consequuntur. Quibusdam animi at sequi, porro minus error ipsum dolorum facere, recusandae optio officiis similique. Commodi sequi accusamus nesciunt quam aut nisi reprehenderit? Nihil optio ad aut esse corrupti, quas necessitatibus nostrum accusamus pariatur nesciunt magnam laborum facilis officia, dolores sit amet, corporis totam placeat ipsum distinctio omnis quod? Repudiandae laudantium voluptas dolores beatae alias ad, sequi id optio cum quaerat numquam, earum voluptatem quae, repellendus qui explicabo! Esse, magni cum nam consequatur nemo libero dicta vero illo, culpa labore, error ut est provident aperiam blanditiis unde ipsam fuga neque praesentium repellendus minima. Id sit at, hic officiis rerum distinctio facere, temporibus quos aspernatur reprehenderit ipsa, tenetur maiores fugit porro. Labore, esse nam, necessitatibus molestiae corporis similique, beatae dignissimos expedita consequatur nobis consectetur nulla alias praesentium quasi cumque repellat nemo eum voluptatum! Accusantium, eveniet. Ad officiis officia doloribus dolorem eligendi ratione quidem repellendus aliquam minus nihil enim, laudantium dolor, saepe, illo dignissimos ducimus ipsa quaerat reprehenderit sint at totam non asperiores rerum. Consequuntur illum quos dicta assumenda id, nostrum vel. Magni quisquam praesentium dolorum modi! Suscipit ex unde saepe ipsam ad ut a, ipsum molestias corrupti impedit iusto maxime exercitationem doloribus dignissimos, architecto qui rerum! Qui, ducimus quidem? Veritatis nemo eveniet porro voluptas necessitatibus. A officiis voluptates minima, reprehenderit temporibus sit saepe provident eos at autem aperiam nam totam cum quae neque obcaecati corrupti? Quia reiciendis, nesciunt voluptates dolorum quis facilis provident ad maiores eaque? Commodi exercitationem esse consequatur magnam dignissimos, harum quos provident! Ipsam delectus eligendi et libero harum iste tempora sint similique. Consequuntur beatae debitis, deserunt id et fuga vel! Beatae, quos autem laudantium officiis esse cum aut provident molestias nulla iure eum vitae ipsum sit nesciunt facere sapiente architecto quas odit ipsam, aspernatur ea illum eligendi quod similique? Tempora rem fugit voluptatum maxime optio cum non, id beatae possimus veritatis ex debitis quas qui iure accusantium ipsum. Voluptates eos sequi molestiae ea laudantium eius fuga consequuntur ducimus expedita dolor suscipit eligendi, aut voluptatum laboriosam dolore quos ad explicabo fugit optio molestias sapiente eum earum impedit. Voluptates, dolores commodi. Hic provident similique magni voluptatibus. Harum provident tenetur eius, temporibus possimus ab aliquam eaque libero atque ducimus quas dolorum veritatis quo voluptatem pariatur nisi quae ipsa cumque asperiores numquam eveniet? Vero, totam soluta. Voluptatum quaerat aut repellendus cupiditate cum. Earum ipsam odit expedita harum est quidem porro autem error consequuntur ipsum qui asperiores, corrupti officiis? Commodi suscipit laborum cum quaerat aperiam autem consequuntur amet dolores modi, doloribus excepturi harum ipsum, minima atque sunt culpa omnis pariatur ea totam, qui eius iure quam aspernatur. Officia voluptas quas debitis consequuntur nihil officiis ab, aspernatur quia neque maiores exercitationem facilis fuga nobis voluptatum nostrum vitae voluptates placeat, nesciunt quod rerum sunt eos! Repellat aut provident dignissimos explicabo, aliquid nisi veritatis est officia accusamus, minus corrupti rem iusto beatae soluta, cum nam voluptate? Minima, nostrum. Obcaecati saepe velit sapiente, neque possimus doloribus sint. Fugiat quo eveniet alias numquam blanditiis temporibus repudiandae soluta reprehenderit, sequi quae incidunt perspiciatis mollitia provident? Officia aut expedita tempore doloremque, earum animi! Blanditiis ex facere expedita repellat nam nobis maiores autem iste exercitationem incidunt delectus dolor velit, cumque quis sed eius, eligendi, perspiciatis a ratione eaque cum? Eos ad autem eligendi possimus enim fugit sequi, perferendis quis inventore unde itaque, pariatur aut doloremque!</div>
     </div>
   );
 };

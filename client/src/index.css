@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @theme {
+  --font-display: "Be Vietnam Pro", sans-serif; 
   --breakpoint-xs: 15rem;
   --animate-diagonal: diagonal 5s ease-in-out infinite;
   --animate-opacity: opacity 0.5s ease-in-out;
@@ -27,7 +28,7 @@
 
 @layer base {
   body {
-    @apply bg-neutral-900 text-neutral-100 w-screen h-dvh overflow-hidden;
+    @apply bg-neutral-900 text-neutral-200 w-screen h-dvh overflow-hidden font-display;
   }
 }
 

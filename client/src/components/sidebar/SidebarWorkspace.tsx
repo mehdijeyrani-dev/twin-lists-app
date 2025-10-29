@@ -1,9 +1,6 @@
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { Icon } from "../icons";
-
-interface WorkspacePanelProps {
-  isSidebarOpen: boolean;
-}
 
 const navLinkClass = `
   flex items-center
@@ -20,13 +17,9 @@ const navLinkClass = `
   .replace(/\s+/g, " ")
   .trim();
 
-const WorkspacePanel = ({ isSidebarOpen }: WorkspacePanelProps) => {
+const SidebarWorkspace = () => {
   return (
-    <nav
-      className={`w-full transition-opacity flex flex-col gap-2 flex-1 mb-2 ${
-        isSidebarOpen ? "opacity-100 duration-[1500ms]" : "opacity-0"
-      }`}
-    >
+    <nav className="w-full flex flex-col gap-2 overflow-y-auto">
       <NavLink to={"/tasks"} className={navLinkClass}>
         <Icon.Note size={20} />
         <span>My Tasks</span>
@@ -43,4 +36,4 @@ const WorkspacePanel = ({ isSidebarOpen }: WorkspacePanelProps) => {
   );
 };
 
-export default WorkspacePanel;
+export default SidebarWorkspace;

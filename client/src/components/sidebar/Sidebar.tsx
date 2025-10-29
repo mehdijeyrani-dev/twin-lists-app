@@ -1,44 +1,34 @@
 import avatarImg from "@/assets/images/avatar01.jpg";
-import SidebarProfile from "./SidebarProfile";
-import SidebarAction from "./SidebarAction";
-import SidebarNav from "./SidebarNav";
-import AccountControls from "./AccountControls";
-import WorkspacePanel from "./WorkspacePanel";
 import { useUIStore } from "@/store/useUIStore";
+import SidebarHeader from "./SidebarHeader";
+import SidebarAccountMenu from "./SidebarAccountMenu";
+import SidebarNavigation from "./SidebarNavigation";
 
 const Sidebar = () => {
-  const { isSidebarOpen, openAddTaskModal, openAddTeamModal, openSearchModal } =
-    useUIStore();
+  const { isSidebarOpen } = useUIStore();
+
+  const sidebarClass = `
+    h-dvh bg-neutral-900 border-r border-neutral-800 flex-col justify-between
+    transition-all duration-500 ease-in-out
+    hidden md:flex
+    ${
+      isSidebarOpen
+        ? "w-0 md:w-3/10 lg:w-2/10 p-2"
+        : "w-0 p-0 overflow-hidden"
+    }
+  `;
 
   return (
-    <aside
-      className={`flex-shrink-0 border-r border-neutral-800 overflow-hidden hidden md:block bg-neutral-900 overflow-y-auto transition-all duration-500 ease-in-out ${
-        isSidebarOpen
-          ? "w-3/10 lg:w-2/10 p-2.5 opacity-100"
-          : "w-0 p-0 opacity-0"
-      }`}
-    >
-      <div className="w-full h-full flex flex-col justify-between">
-        <div className="flex flex-col flex-1 gap-2 h-full">
-          <SidebarProfile
-            isSidebarOpen={isSidebarOpen}
-            avatarImg={avatarImg}
-            name="Mehdi Jeyrani"
-          />
-          <hr className="border-neutral-800" />
-          <SidebarAction
-            isSidebarOpen={isSidebarOpen}
-            onOpenAddTaskModal={openAddTaskModal}
-            onOpenAddTeamModal={openAddTeamModal}
-            onOpenSearchModal={openSearchModal}
-          />
-          <hr className="border-neutral-800" />
-          <div className="flex flex-col gap-2 overflow-y-auto flex-1">
-            <SidebarNav isSidebarOpen={isSidebarOpen} />
-            <WorkspacePanel isSidebarOpen={isSidebarOpen} />
-          </div>
-        </div>
-        <AccountControls isSidebarOpen={isSidebarOpen} />
+    <aside className={sidebarClass} aria-label="Main navigation sidebar">
+      <div
+        className={`flex flex-col gap-2 justify-between h-full transition-all duration-500 ${
+          isSidebarOpen ? "scale-100 opacity-100" : "scale-0 opacity-0"
+        }`}
+      >
+        <SidebarHeader avatarImg={avatarImg} name="Mehdi Jeyrani" />
+        <hr className="border-neutral-800" />
+        <SidebarNavigation />
+        <SidebarAccountMenu />
       </div>
     </aside>
   );

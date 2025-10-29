@@ -1,17 +1,9 @@
 import { NavLink } from "react-router-dom";
 import { Icon } from "../icons";
 
-interface AccountControlsProps {
-  isSidebarOpen: boolean;
-}
-
-const AccountControls = ({ isSidebarOpen }: AccountControlsProps) => {
+const SidebarAccountMenu = () => {
   return (
-    <nav
-      className={`w-full transition-all flex flex-col gap-2 ${
-        isSidebarOpen ? "opacity-100 duration-1000" : "opacity-0"
-      }`}
-    >
+    <nav className="w-full flex flex-col gap-2">
       <NavLink
         to={"/"}
         className="flex items-center gap-2 bg-transparent w-full p-2 rounded-sm hover:bg-neutral-800/50 transition-all duration-200 cursor-pointer"
@@ -30,4 +22,4 @@ const AccountControls = ({ isSidebarOpen }: AccountControlsProps) => {
   );
 };
 
-export default AccountControls;
+export default SidebarAccountMenu;
