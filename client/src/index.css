@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: "Be Vietnam Pro", sans-serif; 
+  --font-display: "Be Vietnam Pro", sans-serif;
   --breakpoint-xs: 15rem;
   --animate-diagonal: diagonal 5s ease-in-out infinite;
   --animate-opacity: opacity 0.5s ease-in-out;
@@ -69,4 +69,8 @@ button {
 
 .simplebar-scrollbar:hover:before {
   background-color: var(--color-neutral-700) !important;
+}
+
+.swiper-pagination-bullet{
+  background: var(--color-neutral-50) !important;
 }

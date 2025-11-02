@@ -3,7 +3,7 @@ import MobileNavbar from "@/components/navbar/MobileNavbar";
 import SidebarToggle from "@/components/ui/SidebarToggle";
 import { useUIStore } from "@/store/useUIStore";
 import AddTaskModal from "@/components/AddTaskModal";
-import { Plus } from "lucide-react";
+// import { Plus } from "lucide-react";
 import MainContent from "@/components/layout/MainContent";
 
 const Dashboard = () => {
@@ -16,9 +16,9 @@ const Dashboard = () => {
       <MainContent />
       <MobileNavbar />
       {isAddTaskModalOpen && <AddTaskModal />}
-      <button className="fixed bottom-24 right-3 bg-purple-500 text-white p-4 rounded-full md:hidden z-[200]">
+      {/* <button className="fixed bottom-24 right-3 bg-purple-500 text-white p-4 rounded-full md:hidden z-[200]">
         <Plus size={20} />
-      </button>
+      </button> */}
     </div>
   );
 };

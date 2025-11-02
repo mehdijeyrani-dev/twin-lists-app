@@ -1,14 +1,21 @@
+import ProtectedRoute from "@/components/ProtectedRoute";
 import Dashboard from "@/layouts/Dashboard";
 import Inbox from "@/pages/Inbox";
+import Login from "@/pages/Login";
 import SearchResults from "@/pages/SearchResults";
 import Today from "@/pages/Today";
 import Upcoming from "@/pages/Upcoming";
 import Workspaces from "@/pages/Workspaces";
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 const router = createBrowserRouter([
+  { path: "/login", element: <Login /> },
   {
     path: "/",
-    element: <Dashboard />,
+    element: (
+      <ProtectedRoute>
+        <Dashboard />
+      </ProtectedRoute>
+    ),
     children: [
       {
         index: true,
@@ -20,6 +27,7 @@ const router = createBrowserRouter([
       { path: "/workspaces", element: <Workspaces /> },
     ],
   },
+  { path: "*", element: <Navigate to="/" replace /> },
 ]);
 
 export default router;

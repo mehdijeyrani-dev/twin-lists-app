@@ -11,11 +11,7 @@ const Sidebar = () => {
     h-dvh bg-neutral-900 border-r border-neutral-800 flex-col justify-between
     transition-all duration-500 ease-in-out
     hidden md:flex
-    ${
-      isSidebarOpen
-        ? "w-0 md:w-3/10 lg:w-2/10 p-2"
-        : "w-0 p-0 overflow-hidden"
-    }
+    ${isSidebarOpen ? "w-0 md:w-3/10 lg:w-2/10 p-2" : "w-0 p-0 overflow-hidden"}
   `;
 
   return (
@@ -25,7 +21,7 @@ const Sidebar = () => {
           isSidebarOpen ? "scale-100 opacity-100" : "scale-0 opacity-0"
         }`}
       >
-        <SidebarHeader avatarImg={avatarImg} name="Mehdi Jeyrani" />
+        <SidebarHeader avatarImg={avatarImg} />
         <hr className="border-neutral-800" />
         <SidebarNavigation />
         <SidebarAccountMenu />
